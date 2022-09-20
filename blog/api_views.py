@@ -34,7 +34,7 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
 
     if request.method == "GET":
-        return return JsonResponse(PostSerializer(post).data)
+        return JsonResponse(PostSerializer(post).data)
     elif request.method == "PUT":
         post_data = json.loads(request.body)
         serializer = PostSerializer(post, data=post_data)
