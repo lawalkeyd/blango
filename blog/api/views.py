@@ -2,7 +2,7 @@ from rest_framework import generics
 
 from django.contrib.auth.models import User
 from blog.models import Post
-from blog.api.serializers import PostSerializer, UserSerializer
+from blog.api.serializers import PostSerializer, UserSerializer, PostDetailSerializer
 
 class PostList(generics.ListCreateAPIView):
   queryset = Post.objects.all()
@@ -10,7 +10,7 @@ class PostList(generics.ListCreateAPIView):
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
   queryset = Post.objects.all()
-  serializer_class = PostSerializer
+  serializer_class = PostDetailSerializer
 
 class UserDetail(generics.RetrieveAPIView):
     lookup_field = "email"
