@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blango_auth',
     'blog',
     'rest_framework',
     'rest_framework.authtoken'
@@ -79,6 +80,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blango.wsgi.application'
 
+AUTH_USER_MODEL='blango_auth.User'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

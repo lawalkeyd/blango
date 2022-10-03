@@ -1,7 +1,9 @@
 from  rest_framework import serializers
 
 from blog.models import Post, Tag, Comment
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class TagField(serializers.SlugRelatedField):
   def to_internal_value(self, data):
@@ -28,7 +30,7 @@ class PostSerializer(serializers.ModelSerializer):
     slug_field="value", many=True, queryset=Tag.objects.all()
   )
   author = serializers.HyperlinkedRelatedField(
-    queryset=User.objects.all, view_name="api_user_detail", lookup_field="email"
+    queryset=User.objects.all(), view_name="api_user_detail", lookup_field="email"
   )
   class Meta:
     model = Post

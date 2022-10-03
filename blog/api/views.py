@@ -3,6 +3,10 @@ from rest_framework import generics
 from django.contrib.auth.models import User
 from blog.models import Post
 from blog.api.serializers import PostSerializer, UserSerializer, PostDetailSerializer
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
 
 class PostList(generics.ListCreateAPIView):
   queryset = Post.objects.all()
